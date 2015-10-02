@@ -1,0 +1,56 @@
+{
+  "generator-angular-rockr": {
+    "version": "0.1.2-dev",
+    "props": {
+      "angularVersion": "~1.4.2",
+      "angularModules": [
+        {
+          "key": "animate",
+          "module": "ngAnimate"
+        },
+        {
+          "key": "sanitize",
+          "module": "ngSanitize"
+        }
+      ],
+      "jQuery": {
+        "key": "jquery1"
+      },
+      "resource": {
+        "key": "none",
+        "module": null
+      },
+      "router": {
+        "key": "angular-route",
+        "module": "ngRoute"
+      },
+      "ui": {
+        "key": "bootstrap",
+        "module": null
+      },
+      "bootstrapComponents": {
+        "key": "none",
+        "module": null
+      },
+      "cssPreprocessor": {
+        "key": "less",
+        "extension": "less"
+      },
+      "jsPreprocessor": {
+        "key": "none",
+        "extension": "js",
+        "srcExtension": "js"
+      },
+      "htmlPreprocessor": {
+        "key": "none",
+        "extension": "html"
+      },
+      "paths": {
+        "src": "src",
+        "dist": "dist",
+        "e2e": "e2e",
+        "tmp": ".tmp"
+      }
+    }
+  }
+}
