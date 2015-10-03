@@ -1,0 +1,55 @@
+#publishForm.form{
+	border-color: transparent;
+	display: block;
+	max-height: 0;
+	margin: 15px 0;
+	padding: 0 15px;
+	overflow: hidden;
+	-webkit-transition: all 0.8s;
+	-moz-transition: all 0.8s;
+	-ms-transition: all 0.8s;
+	-o-transition: all 0.8s;
+	transition: all 0.8s;
+
+	&.activate{
+		border-color: #CCC;
+		max-height: 350px;
+	}
+}
+
+#list-news{
+	margin: 0;
+	padding: 10px 15px;
+
+	li{
+		border: 1px solid #CCC;
+		padding: 10px 15px;
+		list-style: none;
+
+		img{
+			max-width: 100%;
+			vertical-align: middle;
+		}
+
+		.profile-image{
+			display: inline-block;
+			max-width: 80px;
+			height: 70px;
+			padding: 5px 10px;
+			vertical-align: top;
+		}
+
+		.profile-info{
+			display: inline-block;
+			height: 70px;
+			padding: 5px 10px;
+			vertical-align: top;
+		}
+
+		.description{
+			vertical-align: top;
+			display: block;
+		}
+
+	}
+}
