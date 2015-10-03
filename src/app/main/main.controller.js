@@ -1,39 +1,61 @@
 (function () {
-    'use strict';
+	'use strict';
 
-    angular
-        .module('desafio')
-        .controller('MainController', MainController);
+	angular
+		.module('desafio')
+		.controller('MainController', MainController);
 
-    /** @ngInject */
-    function MainController($timeout, webDevTec, toastr) {
-        var vm = this;
+	/** @ngInject */
+	function MainController($stateParams, $window, $state, toastr, dataservice) {
+		var vm = this;
 
-        vm.awesomeThings = [];
-        vm.classAnimation = '';
-        vm.creationDate = 1443825435856;
-        vm.showToastr = showToastr;
+		vm.showForm = 0;
+		vm.itemsPerPage = 10;
+		vm.showHideForm = showHideForm;
+		vm.save = save;
+		vm.cancel = cancel;
+		vm.feed = [];
 
-        activate();
+		activate();
 
-        function activate() {
-            getWebDevTec();
-            $timeout(function () {
-                vm.classAnimation = 'rubberBand';
-            }, 4000);
-        }
+		function activate() {
+			getNews();
+		}
 
-        function showToastr() {
-            toastr.info('Fork <a href="https://github.com/viniciusdacal/generator-angular-rockr" target="_blank"><b>generator-gulp-angular</b></a>');
-            vm.classAnimation = '';
-        }
+		function cancel(){
+			closeForm();
+		}
 
-        function getWebDevTec() {
-            vm.awesomeThings = webDevTec.getTec();
+		function closeForm(){
+			vm.showForm = 0;
+		}
 
-            angular.forEach(vm.awesomeThings, function (awesomeThing) {
-                awesomeThing.rank = Math.random();
-            });
-        }
-    }
+		function getNews() {
+			dataservice.getNews(function(news){
+				vm.feed = news;
+			});
+		}
+
+		function save(){
+			console.log("Teste 035165");
+			vm.publish.date = new Date();
+			dataservice.publishNews(vm.publish, function(data){
+				showToastr(data);
+				
+			});
+		}
+
+		function showHideForm(){
+			vm.showForm = !vm.showForm;
+		}
+
+		function showToastr(response){
+			if(response.status){
+				toastr.success(response.message);
+				closeForm();
+			}else{
+				toastr.error(response.message);
+			}
+		}
+	}
 })();
