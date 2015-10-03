@@ -1,11 +1,8 @@
-/* global malarkey:false, toastr:false, moment:false */
+/* global toastr:false */
 (function () {
     'use strict';
 
     angular
         .module('desafio')
-        .constant('malarkey', malarkey)
-        .constant('toastr', toastr)
-        .constant('moment', moment);
-
+        .constant('toastr', toastr);
 })();
