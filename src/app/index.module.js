@@ -2,6 +2,9 @@
     'use strict';
 
     angular
-        .module('desafio', ['ngAnimate', 'ngSanitize', 'ngRoute']);
+        .module('desafio', [
+        	'desafio.core',
+        	'angularUtils.directives.dirPagination'
+        	]);
 
 })();
